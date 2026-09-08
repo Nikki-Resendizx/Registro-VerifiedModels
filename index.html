@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verified Models - Crear Perfil</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+body{background:#000;color:#fff;font-family:Arial;text-align:center;padding:18px;margin:0}
+.logo{width:130px;height:130px;margin:0 auto 10px;border-radius:50%;border:3px solid #ff69b4;box-shadow:0 0 25px #ff69b4;overflow:hidden}
+.logo img{width:100%;height:100%;object-fit:cover}
+h2{color:#ff8ec3;text-shadow:0 0 10px #ff69b4;margin:10px 0}
+.card{background:linear-gradient(145deg,#111,#1c1c1c);border:1px solid #333;border-radius:18px;padding:16px;margin:15px 0;text-align:left}
+.card label{color:#ffb6da;font-size:13px;font-weight:bold;display:block;margin:14px 0 6px}
+input,select,textarea{width:100%;background:#000;border:2px solid #333;border-radius:12px;padding:13px;color:#fff;font-size:14px;box-sizing:border-box;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#ff69b4}
+textarea{resize:none;height:85px}
+.btn-rosa{background:linear-gradient(90deg,#ffb6da,#ff69b4);border:none;padding:16px;border-radius:30px;color:#000;font-weight:bold;width:100%;font-size:15px;box-shadow:0 0 20px #ff69b4;margin-top:18px;cursor:pointer}
+.btn-foto{background:#111;border:2px dashed #ff69b4;border-radius:15px;padding:20px;color:#ff8ec3;font-weight:bold;width:100%;cursor:pointer}
+.preview{width:100%;height:280px;object-fit:cover;border-radius:15px;border:2px solid #ff69b4;margin-top:10px;display:none}
+.servs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.opcion{background:#111;border:1.5px solid #444;border-radius:12px;padding:10px 4px;font-size:11px;font-weight:bold;cursor:pointer;text-align:center}
+.opcion.seleccionada{background:linear-gradient(90deg,#ffb6da,#ff69b4);color:#000;border-color:#fff;box-shadow:0 0 10px #ff69b4}
+.hidden{display:none}
+.intro-text{color:#ddd;font-size:13px;line-height:18px;background:rgba(255,105,180,0.08);border:1px solid #ff69b4;border-radius:15px;padding:14px;text-align:left}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+<div class="logo"><img src="logo.webp" onerror="this.src='Logo.webp'"></div>
+<h2>💖 𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗔 💖</h2>
+<div class="intro-text">
+𝘗𝘳𝘪𝘮𝘦𝘳𝘰 𝘥𝘦𝘣𝘦𝘴 𝘤𝘰𝘮𝘱𝘭𝘦𝘵𝘢𝘳 𝘭𝘰𝘴 3 𝘱𝘳𝘪𝘮𝘦𝘳𝘰𝘴 𝘱𝘢𝘴𝘢𝘴𝘰𝘴 𝘥𝘦 𝘷𝘦𝘳𝘪𝘧𝘪𝘤𝘢𝘤𝘪𝘰𝘯 𝘦𝘯𝘷𝘪𝘢𝘯𝘥𝘰 𝘭𝘰𝘴 𝘴𝘪𝘨 𝘳𝘦𝘲𝘶𝘪𝘴𝘪𝘵𝘰𝘴 𝘦𝘯 𝘦𝘭 𝘤𝘩𝘢𝘵 𝘥𝘦𝘭 𝘣𝘰𝘵 @VerifiedModelsVIP_Bot.<br><br>
+1. 𝙑𝙄𝘿𝙀𝙊𝙈𝙀𝙉𝙎𝘼𝙅𝙀<br>
+2. 𝙁𝙊𝙏𝙊 𝙕𝙄𝙉𝙂<br>
+3. 𝙍𝙀𝙁𝙀𝙍𝙀𝙉𝘾𝙄𝘼𝙎<br><br>
+𝘚𝘪 𝘺𝘢 𝘭𝘢𝘴 𝘦𝘯𝘷𝘪𝘢𝘴𝘵𝘦, 𝘥𝘢𝘭𝘦 𝘤𝘭𝘪𝘤𝘬 𝘢𝘭 𝘣𝘰𝘵𝘰𝘯 💎 𝘾𝙍𝙀𝘼𝙍 𝙈𝙄 𝙋𝙀𝙍𝙁𝙄𝙇 💎
+</div>
+<button class="btn-rosa" onclick="irPaso1()">💎 𝘾𝙍𝙀𝘼𝙍 𝙈𝙄 𝙋𝙀𝙍𝙁𝙄𝙇 💎</button>
+</div>
+
+<!-- PASO 1 -->
+<div id="paso1" class="hidden">
+<h2>👑 PASO 1 DE 2</h2>
+<div class="card">
+<label>1. 👑 𝐂𝐔𝐀𝐋 𝐄𝐒 𝐄𝐋 𝐍𝐎𝐌𝐁𝐑𝐄 𝐐𝐔𝐄 𝐔𝐒𝐀𝐒 𝐏𝐀𝐑𝐀 𝐕𝐄𝐍𝐓𝐀𝐒❔</label>
+<input id="nombreVentas" placeholder="Ej: Luna Rosa">
+
+<label>2. 👤 𝐂𝐔𝐀𝐋 𝐄𝐒 𝐓𝐔 𝐔𝐒𝐔𝐀𝐑𝐈𝐎❔</label>
+<input id="usuario" placeholder="@tuUsuario">
+
+<label>3. 🔞 𝐐𝐔𝐄 𝐄𝐃𝐀𝐃 𝐓𝐈𝐄𝐍𝐄𝐒❔</label>
+<input id="edad" type="number" inputmode="numeric" placeholder="Ej: 22">
+
+<label>4. 🌐 𝐂𝐔𝐀𝐋 𝐄𝐒 𝐓𝐔 𝐍𝐀𝐂𝐈𝐎𝐍𝐀𝐋𝐈𝐃𝐀𝐃❔</label>
+<select id="nacionalidad">
+<option value="">Selecciona...</option>
+<option>🇲🇽 MEXICANA</option>
+<option>🇨🇴 COLOMBIANA</option>
+<option>🇪🇨 ECUATORIANA</option>
+<option>🇻🇪 VENEZOLANA</option>
+<option>🇦🇷 ARGENTINA</option>
+<option>🇨🇱 CHILENA</option>
+<option>🇵🇪 PERUANA</option>
+<option>🇪🇸 ESPAÑOLA</option>
+<option>🇺🇸 ESTADOUNIDENSE</option>
+<option>🇧🇷 BRASILEÑA</option>
+</select>
+</div>
+<button class="btn-rosa" onclick="irPaso2()">💎 𝘾𝙊𝙉𝙏𝙄𝙉𝙐𝘼𝙍 💎</button>
+</div>
+
+<!-- PASO 2 -->
+<div id="paso2" class="hidden">
+<h2>👑 PASO 2 DE 2</h2>
+<div class="card">
+<label>5. 🖼️ 𝐄𝐍𝐕𝐈𝐀 𝐓𝐔 𝐅𝐎𝐓𝐎 𝐐𝐔𝐄 𝐃𝐄𝐒𝐄𝐀𝐒 𝐔𝐒𝐀𝐑 𝐏𝐀𝐑𝐀 𝐋𝐀 𝐆𝐀𝐋𝐄𝐑𝐈𝐀.</label>
+<input type="file" id="fotoInput" accept="image/*" hidden>
+<button class="btn-foto" onclick="document.getElementById('fotoInput').click()">📸 SELECCIONAR DE GALERÍA</button>
+<img id="previewFoto" class="preview">
+
+<label style="margin-top:18px">6. 📝 𝐐𝐔𝐄 𝐒𝐄𝐑𝐕𝐈𝐂𝐈𝐎𝐒 𝐌𝐀𝐍𝐄𝐉𝐀𝐒❔<br><span style="color:silver;font-size:11px">👇🏻𝑆𝑒𝑙𝑒𝑐𝑐𝑖𝑜𝑛𝑎 𝑡𝑜𝑑𝑎𝑠 𝑙𝑎𝑠 𝑞𝑢𝑒 𝑎𝑝𝑙𝑖𝑞𝑢𝑒𝑛👇🏻</span></label>
+<div class="servs">
+<div class="opcion" onclick="toggleS(this)">🖼️ ᴢɪɴɢs</div>
+<div class="opcion" onclick="toggleS(this)">🎙️ ᴀᴜᴅɪᴏs</div>
+<div class="opcion" onclick="toggleS(this)">🫦 ғᴇᴛɪᴄʜᴇs</div>
+<div class="opcion" onclick="toggleS(this)">💬 ᴄʜᴀᴛ ʜᴏᴛ</div>
+<div class="opcion" onclick="toggleS(this)">🍌 ᴅɪᴄᴋ ʀᴀᴛᴇ</div>
+<div class="opcion" onclick="toggleS(this)">👑 ᴄᴀɴᴀʟ ᴠɪᴘ</div>
+<div class="opcion" onclick="toggleS(this)">📞 ʟʟᴀᴍᴀᴅᴀs</div>
+<div class="opcion" onclick="toggleS(this)">🎬 ᴄᴏɴᴛᴇɴɪᴅᴏ</div>
+<div class="opcion" onclick="toggleS(this)">👫🏻 ᴇɴᴄᴜᴇɴᴛʀᴏs</div>
+<div class="opcion" onclick="toggleS(this)">👩🏻‍❤️‍💋‍👨🏻 ɴᴏᴠɪᴀ ᴠɪʀᴛᴜᴀʟ</div>
+<div class="opcion" onclick="toggleS(this)">📲 ᴠɪᴅᴇᴏʟʟᴀᴍᴀᴅᴀs</div>
+<div class="opcion" onclick="toggleS(this)">👠 ᴘᴇʀsᴏɴᴀʟɪᴢᴀᴅᴏs</div>
+<div class="opcion" onclick="toggleS(this)">💅🏻 ғᴇɴ-sᴜᴍ / sᴜᴍɪsᴀ</div>
+<div class="opcion" onclick="toggleS(this)">🧕🏻 ғᴇɴ-ᴅᴏᴍ / ᴅᴏᴍɪɴᴀᴄɪᴏɴ</div>
+</div>
+
+<label style="margin-top:18px">7. 🔗 𝐋𝐈𝐍𝐊 𝐃𝐄 𝐓𝐔 𝐂𝐀𝐍𝐀𝐋 𝐅𝐑𝐄𝐄.</label>
+<input id="canalFree" placeholder="https://t.me/...">
+
+<label>8. 👸🏻 𝐔𝐍𝐀 𝐁𝐑𝐄𝐕𝐄 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐂𝐈𝐎𝐍 𝐐𝐔𝐄 𝐓𝐄 𝐆𝐔𝐒𝐓𝐀𝐑𝐈𝐀 𝐈𝐍𝐂𝐋𝐔𝐈𝐑 𝐄𝐍 𝐓𝐔 𝐏𝐄𝐑𝐅𝐈𝐋 𝐃𝐄 𝐕𝐄𝐑𝐈𝐅𝐈𝐂𝐀𝐃𝐀.</label>
+<textarea id="descripcion" placeholder="Ej: Soy muy cariñosa..."></textarea>
+</div>
+<button class="btn-rosa" onclick="enviarTodo()">💎 𝙀𝙉𝙑𝙄𝘼𝙍 𝙍𝙀𝙎𝙋𝙐𝙀𝙎𝙏𝘼𝙎 💎</button>
+</div>
+
+<script>
+const BOT_TOKEN = "PEGA_AQUI_TU_NUEVO_TOKEN";
+const ID_CANAL = "-1004459106029";
+let servicios = [];
+let fotoFile = null;
+
+function irPaso1(){
+ document.getElementById('intro').classList.add('hidden');
+ document.getElementById('paso1').classList.remove('hidden');
+ window.scrollTo(0,0);
+ Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+}
+function irPaso2(){
+ let n=document.getElementById('nombreVentas').value.trim();
+ let u=document.getElementById('usuario').value.trim();
+ let e=document.getElementById('edad').value.trim();
+ let nac=document.getElementById('nacionalidad').value;
+ if(!n||!u||!e||!nac){ alert("Completa las 4 preguntas hermosa 🩷"); return; }
+ if(!u.startsWith("@")){ alert("El usuario debe iniciar con @"); return; }
+ if(isNaN(e) || e===""){ alert("La edad solo números"); return; }
+ document.getElementById('paso1').classList.add('hidden');
+ document.getElementById('paso2').classList.remove('hidden');
+ window.scrollTo(0,0);
+}
+function toggleS(el){
+ el.classList.toggle('seleccionada');
+ let t=el.innerText;
+ if(servicios.includes(t)) servicios=servicios.filter(x=>x!==t);
+ else servicios.push(t);
+}
+document.getElementById('fotoInput').addEventListener('change',function(e){
+ let f=e.target.files[0]; if(!f) return; fotoFile=f;
+ let r=new FileReader();
+ r.onload=function(ev){
+   let img=document.getElementById('previewFoto');
+   img.src=ev.target.result; img.style.display='block';
+ }; r.readAsDataURL(f);
+});
+
+async function enviarTodo(){
+ let nombreVentas=document.getElementById('nombreVentas').value.trim();
+ let usuario=document.getElementById('usuario').value.trim();
+ let edad=document.getElementById('edad').value.trim();
+ let nacionalidad=document.getElementById('nacionalidad').value;
+ let canalFree=document.getElementById('canalFree').value.trim();
+ let descripcion=document.getElementById('descripcion').value.trim();
+
+ if(!fotoFile){ alert("Selecciona tu foto de galería 📸"); return; }
+ if(servicios.length===0){ alert("Selecciona al menos un servicio"); return; }
+ if(!canalFree||!descripcion){ alert("Completa link y descripción"); return; }
+
+ const tg=window.Telegram.WebApp;
+ const user=tg.initDataUnsafe?.user;
+ let tgId=user?.id||"desconocido";
+ let tgUsername=user?.username? "@"+user.username : "sin username";
+ let perfilNombre= user? `${user.first_name||""} ${user.last_name||""}`.trim() : "Desconocido";
+ let idioma=user?.language_code||"desconocido";
+ let fechaHora=new Date().toLocaleString('es-MX',{timeZone:'America/Mexico_City', hour12:true});
+
+ let serviciosLimpios=servicios.map(s=>{
+   let partes=s.split(' ');
+   partes.shift();
+   return partes.join(' ').trim();
+ });
+ let listaServs=serviciosLimpios.map(s=>`• ${s}`).join("\n");
+
+ let caption=`💎 𝙉𝙐𝙀𝙑𝘼 𝘾𝙃𝙄𝘾𝘼 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝘼 💎
+
+👑 𝐍𝐎𝐌𝐁𝐑𝐄 𝐐𝐔𝐄 𝐔𝐒𝐀 𝐏𝐀𝐑𝐀 𝐕𝐄𝐍𝐓𝐀𝐒.
+${nombreVentas}
+
+👤 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐃𝐄 𝐋𝐀 𝐌𝐎𝐃𝐄𝐋𝐎.
+${usuario}
+
+🔞 𝐄𝐃𝐀𝐃 𝐃𝐄 𝐋𝐀 𝐌𝐎𝐃𝐄𝐋𝐎.
+${edad}
+
+🌐 𝐍𝐀𝐂𝐈𝐎𝐍𝐀𝐋𝐈𝐃𝐀𝐃
+${nacionalidad}
+
+👸🏻 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐂𝐈𝐎𝐍.
+${descripcion}
+
+📝 𝐋𝐈𝐒𝐓𝐀 𝐃𝐄 𝐒𝐄𝐑𝐕𝐈𝐂𝐈𝐎𝐒
+${listaServs}
+
+🔗 𝐋𝐈𝐍𝐊 𝐃𝐄𝐋 𝐂𝐀𝐍𝐀𝐋 𝐅𝐑𝐄𝐄
+${canalFree}
+
+━━━━━━━━━━━━━━━
+👤 Info de quien registró:
+• Perfil: ${perfilNombre}
+• Username: ${tgUsername}
+• ID: ${tgId}
+• Fecha y hora: ${fechaHora}
+• Idioma: ${idioma}`;
+
+ let form=new FormData();
+ form.append("chat_id",ID_CANAL);
+ form.append("caption",caption);
+ form.append("photo",fotoFile);
+
+ try{
+   let res=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,{method:"POST",body:form});
+   let data=await res.json();
+   if(data.ok){ tg.HapticFeedback.notificationOccurred('success'); tg.close(); }
+   else alert("Error: "+data.description);
+ }catch(err){ alert("Error: "+err.message); }
+}
+Telegram.WebApp.ready(); Telegram.WebApp.expand();
+</script>
+</body>
+</html>
