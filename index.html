@@ -110,7 +110,7 @@ function irPaso1(){
  document.getElementById('intro').classList.add('hidden');
  document.getElementById('paso1').classList.remove('hidden');
  window.scrollTo(0,0);
- Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+ Telegram.WebApp.HapticFeedback?.impactOccurred?.('medium');
 }
 function irPaso2(){
  let n=document.getElementById('nombreVentas').value.trim();
@@ -119,7 +119,8 @@ function irPaso2(){
  let nac=document.getElementById('nacionalidad').value;
  if(!n||!u||!e||!nac){ alert("Completa las 4 preguntas hermosa 🩷"); return; }
  if(!u.startsWith("@")){ alert("El usuario debe iniciar con @"); return; }
- if(!/^\\d+$/.test(e)){ alert("La edad solo números"); return; }\n if(Number(e)<18){ alert("Debes ser mayor de 18 años para registrarte."); return; }
+ if(!/^\d+$/.test(e)){ alert("La edad solo números"); return; }
+ if(Number(e)<18){ alert("Debes ser mayor de 18 años para registrarte."); return; }
  document.getElementById('paso1').classList.add('hidden');
  document.getElementById('paso2').classList.remove('hidden');
  window.scrollTo(0,0);
@@ -147,7 +148,9 @@ async function enviarTodo(){
  let canalFree=document.getElementById('canalFree').value.trim();
  let descripcion=document.getElementById('descripcion').value.trim();
 
- if(!fotoFile){ alert("Selecciona tu foto de galería 📸"); return; }\n if(fotoFile.size>10*1024*1024){ alert("La foto no debe superar 10 MB."); return; }\n if(!["image/jpeg","image/png","image/webp"].includes(fotoFile.type)){ alert("Usa una foto JPG, PNG o WEBP."); return; }
+ if(!fotoFile){ alert("Selecciona tu foto de galería 📸"); return; }
+ if(fotoFile.size>10*1024*1024){ alert("La foto no debe superar 10 MB."); return; }
+ if(!["image/jpeg","image/png","image/webp"].includes(fotoFile.type)){ alert("Usa una foto JPG, PNG o WEBP."); return; }
  if(servicios.length===0){ alert("Selecciona al menos un servicio"); return; }
  if(!canalFree||!descripcion){ alert("Completa link y descripción"); return; }
 
@@ -169,7 +172,7 @@ async function enviarTodo(){
  try{
    let res=await fetch(`/api/sendPhoto`,{method:"POST",headers:{"X-Telegram-Init-Data":tg.initData},body:form});
    let data=await res.json();
-   if(data.ok){ tg.HapticFeedback.notificationOccurred('success'); tg.close(); }
+   if(data.ok){ tg.HapticFeedback?.notificationOccurred?.('success'); tg.close(); }
    else { alert("Error: "+data.description); btn.innerText="💎 𝙀𝙉𝙑𝙄𝘼𝙍 𝙍𝙀𝙎𝙋𝙐𝙀𝙎𝙏𝘼𝙎 💎"; btn.disabled=false; }
  }catch(err){ alert("Error: "+err.message); btn.innerText="💎 𝙀𝙉𝙑𝙄𝘼𝙍 𝙍𝙀𝙎𝙋𝙐𝙀𝙎𝙏𝘼𝙎 💎"; btn.disabled=false; }
 }
