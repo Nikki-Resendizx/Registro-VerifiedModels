@@ -22,10 +22,11 @@ function verifyTelegramInitData(initData, botToken) {
     return { ok: false, reason: "Autenticación de Telegram inválida." };
   }
 
+  // Para HMAC con el token del bot se excluye únicamente "hash".
+  // "signature" también forma parte de los campos recibidos y debe conservarse.
   params.delete("hash");
-  params.delete("signature");
   const dataCheckString = [...params.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
     .map(([key, value]) => `${key}=${value}`)
     .join("\n");
 
